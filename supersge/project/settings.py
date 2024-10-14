@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('', 'change-me'),
+        'ENGINE': os.getenv('DB_ENGINE', 'change-me'),
         'NAME': os.getenv('POSTGRES_DB', 'change-me'),
-        'USER': os.getenv('POSTGRES_USE', 'change-me'),
+        'USER': os.getenv('POSTGRES_USER', 'change-me'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'change-me'),
         'HOST': os.getenv('POSTGRES_HOST', 'change-me'),
         'PORT': os.getenv('POSTGRES_PORT', 'change-me'),
@@ -123,10 +123,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = DATA_DIR / 'static'
 
-MEDIA_URL = DATA_DIR / 'media'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = DATA_DIR / 'media'
 
 # Default primary key field type
