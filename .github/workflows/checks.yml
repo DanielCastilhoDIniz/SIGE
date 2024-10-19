@@ -15,6 +15,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }} 
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Criar arquivo .env temporário
+        run: |
+          echo "DATABASE_URL=postgres://user:password@localhost/db" > dotenv_files/.env
+          echo "API_KEY=abc123" >> dotenv_files/.env
       - name: Tests
         run: docker compose run --rm app sh -c "python manage.py test"
       - name: Lint
