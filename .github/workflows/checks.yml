@@ -28,7 +28,8 @@ jobs:
           echo "API_KEY=abc123" >> dotenv_files/.env
 
       - name: Run Tests
-        run: docker compose -f docker/docker-compose.yml run --rm app sh -c "python manage.py test"
+        run: docker compose -f docker-compose.yml run --rm app sh -c "python manage.py test"
 
       - name: Run Lint
         run: docker compose run --rm app sh -c "flake8"
+D
